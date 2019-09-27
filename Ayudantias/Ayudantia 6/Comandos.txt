@@ -1,0 +1,20 @@
+Conexion Cluster
+    ssh username@mazinger.ing.puc.cl (despues deberan ingresar su contraseña) -> ingresar al cluster
+    exit -> salir del cluster
+
+Subir archivos:
+
+    Opcion 1: scp local_file username@mazinger.ing.puc.cl:remote_file -> (se corre en terminal local) sube archivo local file al servidor con nombre remote_file
+
+    Opcion 2: crear un repositorio de github y clonarlo en su computador y en el servidor, subir archivos con commits
+
+Correr Codigo:
+
+    module load openmpi -> "instala" local y temporalmente los comandos de MPI para tu usuario
+    mpic++ helloMPI.cpp -> compila el código y lo guarda en a.out
+    mpirun a.out -> corre el ejecutable a.out
+
+    squeue -> da informacion sobre la cola de trabajo
+
+    sbatch job.sh -> agrega el trabajo jobMPI.pbs a la cola de trabajo
+
