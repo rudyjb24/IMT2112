@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# Nombre del trabajo
-#SBATCH --job-name=PruebaRudy
-# Archivo de salida
-#SBATCH --output=salida.txt
-# Cola de trabajo
 #SBATCH --partition=full
-# Solicitud de cpus
-#SBATCH --nodes=4
 
+#SBATCH --job-name=IMT2112
+#SBATCH --output=log.out
 
-module load openmpi
-mpic++ hello_world.cpp
-mpirun a.out
+#SBATCH --nodes=1
+#SBATCH --ntasks=2
+#SBATCH --cpus-per-task=1
+
+mpic++ code.cpp
+srun --mpi=openmpi a.out
