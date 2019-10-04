@@ -10,8 +10,7 @@ Subir archivos:
 
 Correr Codigo:
 
-    module load openmpi -> "instala" local y temporalmente los comandos de MPI para tu usuario
-    mpic++ helloMPI.cpp -> compila el código y lo guarda en a.out
+    mpic++ code.cpp -> compila el código y lo guarda en a.out
     mpirun a.out -> corre el ejecutable a.out
 
     squeue o top -> da informacion sobre la cola de trabajo

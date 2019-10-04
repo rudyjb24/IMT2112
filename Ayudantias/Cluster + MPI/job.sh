@@ -9,5 +9,5 @@
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=1
 
-mpic++ mcc_hello.cpp
+mpic++ hello_world.cpp
 srun --mpi=openmpi a.out
