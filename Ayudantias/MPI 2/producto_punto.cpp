@@ -22,11 +22,11 @@ int main(){
         localSize += sumlength % world_size;
     }
 
-     	int localVector[localSize];
+    int localVector[localSize];
 
-        for (int n=0; n<localSize; n++){
-                localVector[n] = firstIndex + n;
-        }
+    for (int n=0; n<localSize; n++){
+            localVector[n] = firstIndex + n;
+    }
 
 	int localSum = 0;
         for (int n=0; n<localSize; n++){
