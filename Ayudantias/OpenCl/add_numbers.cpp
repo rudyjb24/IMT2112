@@ -1,13 +1,12 @@
 #define PROGRAM_FILE "add_numbers.cl"
 #define KERNEL_FUNC "add_numbers"
-#define ARRAY_SIZE 10
+#define ARRAY_SIZE 16
 
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
 #include <CL/cl.h>
 
 /* Find a GPU or CPU associated with the first available platform */
@@ -27,6 +26,7 @@ cl_device_id create_device() {
    /* Access a device */
    err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &dev, NULL);
    if(err == CL_DEVICE_NOT_FOUND) {
+
       err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_CPU, 1, &dev, NULL);
    }
    if(err < 0) {
@@ -102,12 +102,15 @@ int main() {
    /* Data and buffers */
    float data[ARRAY_SIZE];
    float sum[2], total, actual_sum;
+
+
    cl_mem input_buffer, sum_buffer;
    cl_int num_groups;
 
    /* Initialize data */
    for(i=0; i<ARRAY_SIZE; i++) {
-      data[i] = rand()%100 - 200;
+      //data[i] = rand()%100 - 200;
+      data[i] = i;
    }
 
    /* Create device and context */
@@ -125,10 +128,12 @@ int main() {
    global_size = 8;
    local_size = 4;
    num_groups = global_size/local_size;
+
    input_buffer = clCreateBuffer(context, CL_MEM_READ_ONLY |
          CL_MEM_COPY_HOST_PTR, ARRAY_SIZE * sizeof(float), data, &err);
    sum_buffer = clCreateBuffer(context, CL_MEM_READ_WRITE |
          CL_MEM_COPY_HOST_PTR, num_groups * sizeof(float), sum, &err);
+
    if(err < 0) {
       perror("Couldn't create a buffer");
       exit(1);
@@ -178,11 +183,12 @@ int main() {
    for(j=0; j<num_groups; j++) {
       total += sum[j];
    }
+
    actual_sum = 0;
    for(j=0; j<ARRAY_SIZE; j++) {
       actual_sum += data[j];
    }
-   printf("Error = %f\n", total-actual_sum);
+   printf("Error = %f\n", total);
 
    /* Deallocate resources */
    clReleaseKernel(kernel);

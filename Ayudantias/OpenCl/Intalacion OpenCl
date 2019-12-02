@@ -1,0 +1,7 @@
+Linux:
+
+sudo apt-get install beignet clinfo
+
+sudo apt-get install beignet-dev
+
+sudo apt install opencl-clhpp-headers     

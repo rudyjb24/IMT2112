@@ -1,0 +1,9 @@
+Les dejo el archivo original y la version "charcha", que es la nueva.
+
+la idea es que olvidamos el uso del local_id, solo usamos el global_id. la progamacion se vuelve entonces muy parecida a MPI.
+
+En add_numbers2.cpp agregamos 2 buffers: uno para pasar el tamaño del array y otro para el numero de grupos.
+
+En add_numbers2.cl, para poder usar los argumentos array_size y num_groups, debemos declararlos como punteros, ya que solo podemos pasar punteros.
+
+Luego el algortimos es como el que hemos implementado en MPI.
