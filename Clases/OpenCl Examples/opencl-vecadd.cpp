@@ -3,11 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#ifdef __APPLE__
-#include <OpenCL/opencl.h>
-#else
 #include <CL/cl.h>
-#endif
 
 // Create the kernel code in the form of a text string
 const char * src =

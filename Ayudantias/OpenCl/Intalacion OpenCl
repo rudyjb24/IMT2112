@@ -5,3 +5,8 @@ sudo apt-get install beignet clinfo
 sudo apt-get install beignet-dev
 
 sudo apt install opencl-clhpp-headers     
+
+
+Windows:
+
+https://streamhpc.com/blog/2015-03-16/how-to-install-opencl-on-windows/
