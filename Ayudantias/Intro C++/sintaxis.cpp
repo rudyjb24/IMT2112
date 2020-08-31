@@ -10,10 +10,10 @@ int main() {
 
     if (a+b > 2  && a%2 == 1)
     {
-        printf("a+b = %i \n", a+b);
+        printf("a+b = %i\n", a+b);
     }
     else if (a+b == 2 || c == 8){
-        printf("c = %f \n", c);
+        printf("c = %f\n", c);
     }
     else{
         //printf("c/a = % \n", c/a);
@@ -24,10 +24,10 @@ int main() {
     {
         a += 1;
     }
-    printf("a = %i \n", a);
+    printf("a = %i\n", a);
 
 
-    while(!terminado)
+    while (!terminado)
     {
         b += 1;
         if (b % 4 == 0)
