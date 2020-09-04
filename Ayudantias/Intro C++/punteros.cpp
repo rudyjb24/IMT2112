@@ -8,8 +8,8 @@ int main() {
   a = 1;
   b = &a;
   
-  //a += 1;
-  //*b += 1; 
+  a += 1;
+  *b += 1; 
 
   printf("a = %i \n", a);
   printf("La direccion donde esta guardado a es: %p \n", &a);

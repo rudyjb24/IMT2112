@@ -7,24 +7,25 @@ int suma(int x1, int x2)
   return x1 + x2;
 }
 
-void actualizar(int *x)
+void actualizar(int* x)
 {
   *x = 1;
 }
 
 int main() {
   
-  int a = 1;
-  int b = 2;
+  int a = 5;
+  int b = 10;
   int c;
 
-  c = suma(a,b);
+  // c = suma(a,b);
 
   printf("c = %i \n", c);
 
-  //actualizar(&a);
-
-  //printf("a = %i \n", a);
+  actualizar(&a);
+  printf("a = %i \n", a);
+  printf("b = %i \n", b);
+  
 
   return 0;
 }
