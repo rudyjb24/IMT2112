@@ -1,0 +1,52 @@
+PARTE 4:                                                                  Williams Medina Cornejo
+
+Para poder medir los tiempos de ejecución utilicé la libreria time que me permitió medir el tiempo que se demora cada
+algoritmo en encontrar los clusters. Así los resultados obtenidos fueron los siguientes:
+
+1. 1000 datos, k = 5, dim = 3
+
+Código Paralelo: n_workers = 2, Tiempo de ejecución = 2.4854509830474854, Cant_procesos = 2, Hilos utilizados = 2
+Código Paralelo: n_workers = 8,	Tiempo de ejecución = 5.46857476234436, Cant_procesos = 8, Hilos utilizados = 2
+
+Código secuencial con numpy: Tiempo de ejecución =  0.684478759765625, Cant_procesos = 1, Hilos utilizados = 1
+
+Código secuencial sin numpy: Tiempo de ejecución = 0.5589542388916016, Cant_procesos = 1, Hilos utilizados = 1
+
+
+2. 10000 datos, k = 8, dim = 3
+
+
+Código Paralelo: n_workers = 3, Tiempo de ejecución = 20.054236888885498, Cant_procesos = 3 , Hilos utilizados = 3
+Código Paralelo: n_workers = 6, Tiempo de ejecución = 20.018500566482544, Cant_procesos = 6, Hilos utilizados = 4
+
+Código secuencial con numpy: Tiempo de ejecución =  36.05966758728027, Cant_procesos = 1, Hilos utilizados = 1
+
+Código secuencial sin numpy: Tiempo de ejecución = 26.995223999023438, Cant_procesos = 1, Hilos utilizados = 1
+
+
+3. 100000 datos, k = 12, dim = 3
+
+Código Paralelo: n_workers = 4, Tiempo de ejecución = 1073.9037804603577, Cant_procesos = 4, Hilos utilizados = 4
+Código Paralelo: n_workers = 8, Tiempo de ejecución = 1013.9797022342682, Cant_procesos = 8, Hilos utilizados = 4
+
+Código secuencial con numpy: Tiempo de ejecución =  2511.9942293167114, Cant_procesos = 1, Hilos utilizados = 1
+
+Código secuencial sin numpy: Tiempo de ejecución = 1886.531677722931, Cant_procesos = 1, Hilos utilizados = 1
+
+
+Conclusión: como se puede notar en el tiempo de computo, para una cantidad de datos no tan grandes, el código paralelo no es para nada
+provechoso en terminos de tiempo, sin embargo al aumentar el número de datos podemos ver que el tiempo de diferencia entre la versión paralelizada
+y la secuencial es casi del doble. Además podemos ver que por la arquitectura de mi computador que cuenta con 4 núcleos el número de workers óptimo es
+un múltiplo de 4 que no sobrepase la cantidad de núcleos fisicos y virtuales, ya que como se ve en el primer caso, el computador se demora más en
+asignar las tareas para cada worker más que resolviendola, hecho que no pasa en el 3er caso donde tenemos una cantidad mucho mayor de operaciones.
+
+
+
+PARTE 5:
+
+En el código de todos los algoritmos deje listo un código para graficar en 3 dimensiones 1000 puntos clasificados, además
+este cuenta con los centroides que al estar al centro de puntos en 3D no se ven, estos se pueden notar en el ejemplo que dejé 
+en 2 dimensiones. 
+
+
+
