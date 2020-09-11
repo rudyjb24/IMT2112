@@ -4,10 +4,9 @@ from time import time
 
 start = time()
 #n datos de dimensión m 
-n = 10000
+n = 10
 m = 2
 data = np.random.rand(n, m)
-
 def menor(lista, cent, k):
     l = []
     for p in range(k):
@@ -66,7 +65,6 @@ print(total)
 #descomprimimos el resultado
 data = resultado[0]
 centroide = resultado[1]
-
 
 ###Ploteamos 
 for i in range(len(data)):

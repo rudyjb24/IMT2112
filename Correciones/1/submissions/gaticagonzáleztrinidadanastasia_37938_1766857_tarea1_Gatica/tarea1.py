@@ -38,8 +38,6 @@ n = 100
 
 data = np.random.rand(n, m)
 
-
-
 #Inicializar el algoritmo.
 def centroides(k, data, centros, iter):
     if iter < 1:

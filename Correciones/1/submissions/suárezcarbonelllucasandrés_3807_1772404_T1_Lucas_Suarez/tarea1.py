@@ -85,8 +85,8 @@ if __name__ == '__main__':
     end_time = time.time()
     python_loop_time = end_time - initial_time
     print(f'Tiempo total usando loops sin paralelización: {python_loop_time} s')
-    #plt.scatter(data[:, 0], data[:, 1], c=new_classes)
-    #plt.show()
+    plt.scatter(data[:, 0], data[:, 1], c=new_classes)
+    plt.show()
 
 # -------------------------------------------------------------------------------------------------------#
 # Ahora usamos numpy para vectorizar...

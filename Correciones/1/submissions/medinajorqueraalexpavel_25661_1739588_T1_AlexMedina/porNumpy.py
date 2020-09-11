@@ -22,8 +22,9 @@ def kmeans_np(n, dim, k, err =0.1):
 
     centros =  np.random.randn(k,dim)
 
+
     #
-    # cols = [i for i in range(k)]
+    cols = [i for i in range(k)]
     # plt.scatter(data.x_0,data.x_1, alpha=0.3, marker="x")
     # plt.scatter(centros[:,0],centros[:,1], c=cols, s=100)
     # plt.title("iniciando centros")
@@ -40,25 +41,20 @@ def kmeans_np(n, dim, k, err =0.1):
         labs = label_numpy(copia,centros)
         data['lab'] = labs
         
-        #
-        # plt.scatter(data.x_0, data.x_1, alpha = 0.3, marker = "x", c = labs)
-        # plt.scatter(centros[:,0], centros[:,1], c = cols, s = 100)
-        # plt.title("marcando puntos")
-        # plt.show()
-        #
+
+
         
         ex_centros = centros.copy()
         for m in range(k):
             centros[m] = np.array(data.groupby('lab').mean().loc[m])
             
-        # #
-        # plt.scatter(data.x_0,data.x_1, alpha=0.3, marker="x", c = labs)
-        # plt.scatter(centros[:,0],centros[:,1], c=cols, s=100)
-        # plt.title("recalculando centros")
-        # plt.show()
-        #
         
         d = dist_centros(ex_centros, centros)
+        
+    plt.scatter(data.x_0,data.x_1, alpha=0.3, marker="x", c = labs)
+    plt.scatter(centros[:,0],centros[:,1], c=cols, s=100)
+    plt.title("recalculando centros")
+    plt.show()
         # print(d)
     return centros
 

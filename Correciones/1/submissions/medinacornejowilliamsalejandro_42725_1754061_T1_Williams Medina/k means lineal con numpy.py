@@ -67,7 +67,7 @@ if __name__ == '__main__':
             centroides = nuevos_centroides
         return (centroides, lista_labels)
 
-    """Ploteamos para 2 dimensiones y un k=4
+    #Ploteamos para 2 dimensiones y un k=4
     datos =  generar_datos(1000, 2)
     k = 4
     centros, puntos = k_means(k, datos)
@@ -82,16 +82,16 @@ if __name__ == '__main__':
         asignar.append(colores[row])
     plt.scatter(datos[:, 0], datos[:, 1], c = asignar, s=50);
     plt.scatter(centros[:,0], centros[:,1], marker='*', c=colores_2, s=100)
-    plt.show()"""
+    plt.show()
 
-    """Para 3 dimensiones y un k=5"""
+    """Para 3 dimensiones y un k=5
     datos =  generar_datos(100000, 3)
     k = 12
     t0 = tm.time()
     centros, puntos = k_means(k, datos)
     t1 = tm.time()
     print('Tiempo de ejecución: ', t1-t0)
-    """centros = np.array(centros)
+    centros = np.array(centros)
     puntos = np.array(puntos)
     labels = np.array(puntos)[:, 1]
     colores=["yellow",'red','green','blue','cyan']

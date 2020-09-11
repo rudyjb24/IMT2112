@@ -9,7 +9,7 @@ import pandas as pd
 
 #Dimensión m y Registro n
 m = 2
-n = 10000
+n = 1000
 
 #Generar datos
 datos = np.random.rand(n, m)

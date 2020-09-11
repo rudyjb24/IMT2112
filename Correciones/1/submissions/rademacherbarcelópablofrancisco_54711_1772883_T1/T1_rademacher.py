@@ -49,9 +49,6 @@ def k_means_normal(k, muestras, centros):
                     centro.append(suma_dim/elem_dim)
                 centros_new.append(tuple(centro))
         itera += 1
-    print(indices_new)
-    print()
-    print(indices_old)
     return centros, indices_new, itera
 
 
@@ -179,9 +176,6 @@ def comparar(dim, n_muestras, k, trabajadores=2):
 
 if __name__ == "__main__":
     centros, indices, x = comparar(2, 1000, 5)
-    centros, indices, x = comparar(10, 1000, 5)
-    centros, indices, x = comparar(10, 10000, 5, 4)
-    centros, indices, x = comparar(10, 10000, 5, 8)
 
     # hacemos el scatter plot
     X = np.array(list(map(lambda p: p[0], x)))

@@ -25,22 +25,10 @@ def kmeans_loop(n, dim, k, err =0.1):
     print(f'muestras \t= {n}\ndimension \t= {dim}\nn de centros \t= {k}\nmax. despl. \t= {err}')
     data = pd.DataFrame({f'x_{d}':[round(np.random.randn(),5) for _ in range(n)] for d in range(dim)} )
     
-    ###v
-    # data = pd.DataFrame({f'x_{d}':[round(np.random.randn(),5) for _ in range(n)] for d in range(dim)} )
-    # plt.scatter(data.x_0,data.x_1)
-    # plt.title("iniciando puntos")
-    # plt.show()
-    ##^
+   
     
     centros = np.array([ np.random.randn(dim) for i in range(k)])
-    
-    ##v
-    # cols = [i for i in range(k)]
-    # plt.scatter(data.x_0,data.x_1, alpha=0.3, marker="x")
-    # plt.scatter(centros[:,0],centros[:,1], c=cols, s=100)
-    # plt.title("iniciando centros")
-    # plt.show()
-    ##^
+
     
     
     copia = data[[f'x_{i}' for i in range(dim)]]
@@ -50,14 +38,7 @@ def kmeans_loop(n, dim, k, err =0.1):
 
     while d > err:
 
-        data['lab'] = [ label_mala(copia.loc[i],centros) for i in range(data.shape[0])] 
-        
-        ###v
-        # plt.scatter(data.x_0,data.x_1, alpha=0.3, marker="x", c = labs)
-        # plt.scatter(centros[:,0],centros[:,1], c=cols, s=100)
-        # plt.title("marcando puntos")
-        # plt.show()
-        ##^
+        data['lab'] = [ label_mala(copia.loc[i],centros) for i in range(data.shape[0])]
         
         ex_centros = centros.copy()
         
@@ -65,10 +46,10 @@ def kmeans_loop(n, dim, k, err =0.1):
             for i in range(dim):
                 centros[m,i] = data[data.lab == m][f'x_{i}'].mean()
         ##v
-        # plt.scatter(data.x_0,data.x_1, alpha=0.3, marker="x", c = labs)
-        # plt.scatter(centros[:,0],centros[:,1], c=cols, s=100)
-        # plt.title("recalculando centros")
-        # plt.show()
+        plt.scatter(data.x_0,data.x_1, alpha=0.3, marker="x", c = labs)
+        plt.scatter(centros[:,0],centros[:,1], c=cols, s=100)
+        plt.title("recalculando centros")
+        plt.show()
         ###^
         
         d = dist_centros(ex_centros, centros)

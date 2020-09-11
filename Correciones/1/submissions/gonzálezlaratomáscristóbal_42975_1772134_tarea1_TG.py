@@ -6,7 +6,7 @@ from sklearn.decomposition import PCA
 
 #generamos los datos: n registros de m dimensiones, reescalados en r
 
-n = 5000
+n = 1000
 m = 7
 r = 1
 
@@ -373,7 +373,7 @@ t1 = time.time()
 print('tiempo paralelos: ', t1-t0)
 #print(l_et == p_et, (np.array(l_cen) == np.array(p_cen)).all()) esto comprueba que los outputs son iguales
 
-
+v_et = p_et
 #VISUALIZACIÓN para 5 centros (dato: mi PC se demora mucho en graficar para mas de 5.000 registros)
 pca = PCA(n_components=2)
 registros = pca.fit(registros).transform(registros)

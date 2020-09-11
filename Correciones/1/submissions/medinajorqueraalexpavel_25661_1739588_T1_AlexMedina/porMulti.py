@@ -36,6 +36,7 @@ def prom_eje(datos):
 
 
 def kmeans_multi(pool, n, dim, k, err =0.1):
+    print("Hello")
     print(f'muestras \t= {n}\ndimension \t= {dim}\nn de centros \t= {k}\nmax. despl. \t= {err}')
     # generar puntos ; n,dim
     # pool = Pool(workers)
@@ -70,7 +71,7 @@ if __name__ == "__main__":
     wkrs = 4
     print("n de trabajadores: \t", wkrs)
     with Pool(wkrs) as pool:
-        ctrs = kmeans_multi(pool,n=1000, dim=2, k=3, err=0.01)
+        ctrs = kmeans_multi(pool,n=100, dim=2, k=3, err=0.01)
     t2=tm.time()
     print(ctrs)
     print(f'Obtenido en {t2-t1} segunds')

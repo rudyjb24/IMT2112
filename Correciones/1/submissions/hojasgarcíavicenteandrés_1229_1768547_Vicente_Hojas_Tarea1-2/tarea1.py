@@ -220,7 +220,7 @@ class NumPyK:
 
 if __name__=='__main__':
     # tamaños de registros
-    N = np.array([10000*i for i in range(1, 10)])
+    N = np.array([1000])
     T = np.zeros((len(N), 3))
     for (i, n) in enumerate(N):
         # numero de features
@@ -235,7 +235,7 @@ if __name__=='__main__':
         # clasificadores
         loop_classifier = ForLoopK(X, C, m, n, k)
         numpy_classifier = NumPyK(X, C)
-        pool_classifier = ParallelK(X, C, n_workers=4)
+        pool_classifier = ParallelK(X, C, n_workers=2)
         # tiempo de clasificador con loops
         t1 = tm.time()
         Y1 = loop_classifier.classify()
@@ -248,12 +248,7 @@ if __name__=='__main__':
         t3 = tm.time()
         Y3 = pool_classifier.classify()
         T[i, 2] = tm.time()-t3
-        print(
-            "verificamos que los resultados sean iguales para los 3 metodos"
-        )
-        print(f'||Y_real-Y_loop|| = {np.linalg.norm(Y-Y1)}')
-        print(f'||Y_loop-Y_numpy|| = {np.linalg.norm(Y1-Y2)}')
-        print(f'||Y_numpy-Y_paralelo|| = {np.linalg.norm(Y2-Y3)}')
+        
 
     # graficamos los tiempos
     fig, ax = plt.subplots(1, 2, figsize=(10, 20))
