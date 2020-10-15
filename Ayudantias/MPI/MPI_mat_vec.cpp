@@ -81,7 +81,7 @@ int main()
         localColumnas += n % world_size;
     }
 
-    // printf("Rank %i, local columnas: %i, first index %i \n", world_rank, localColumnas, firstIndex);
+    printf("Rank %i, local columnas: %i, first index %i \n", world_rank, localColumnas, firstIndex);
 
 	int localVec[localColumnas];
 
