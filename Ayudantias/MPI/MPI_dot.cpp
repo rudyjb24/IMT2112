@@ -18,7 +18,7 @@ int main()
     n = 5;
 
     localSize = n / world_size;
-    firstIndex = world_rank * (sumlength / world_size) + 1;
+    firstIndex = world_rank * (n / world_size) + 1;
     
     if (world_rank == world_size-1)
     {
