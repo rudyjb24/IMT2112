@@ -25,17 +25,17 @@ int main()
         localSize += n % world_size;
     }
 
-	int localVec1[localSize];
-	int localVec2[localSize];
+	float localVec1[localSize];
+	float localVec2[localSize];
 
 	for (int i=0; i<localSize; i++)
     {
-		localVec1[i] = firstIndex + n;
-        localVec2[i] = 2*(firstIndex + n);
+		localVec1[i] = 1;
+        localVec2[i] = i;
 	}
 
 
-	int localSum = 0;
+	float localSum = 0;
 	for (int i=0; i<localSize; i++)
     {
 		localSum += localVec1[i] * localVec2[i];
@@ -55,7 +55,7 @@ int main()
             globalSum += receiveBuffer;
         }
 
-        printf("El valor es: %f", globalSum);
+        printf("El valor es: %f\n", globalSum);
     }
     else 
     {
