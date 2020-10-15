@@ -41,7 +41,7 @@ void print_matrix(int** matrix, int n)
   {
       for (int j = 0; j < n; j++)
       {
-         printf("%f ", matrix[i][j]); 
+         printf("%i ", matrix[i][j]); 
       }
     printf("\n");
   }
@@ -52,7 +52,7 @@ void print_vector(int *vector, int n)
   printf("\n");
   for (int i = 0; i < n; i++) 
   {
-      printf("%f\n", vector[i]);
+      printf("%i\n", vector[i]);
   }
 }
 
