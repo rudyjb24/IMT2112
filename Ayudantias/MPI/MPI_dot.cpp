@@ -13,6 +13,11 @@ int main()
 	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
+    if (world_rank == 0)
+    {
+        printf("Tamano: %i", world_size)
+    }
+
     int firstIndex, localSize, n, err;
     
     n = 5;
@@ -20,6 +25,9 @@ int main()
     localSize = n / world_size;
     firstIndex = world_rank * (n / world_size) + 1;
     
+    printf("Rank %i, local size: %i, first index: %i", world_rank, localSize, firstIndex)
+
+
     if (world_rank == world_size-1)
     {
         localSize += n % world_size;
@@ -40,7 +48,7 @@ int main()
     {
 		localSum += localVec1[i] * localVec2[i];
 	}
-    printf("Local Sum: %f\n", localSum);
+    //printf("Local Sum: %f\n", localSum);
     int globalSum;
 
     globalSum = 0;
@@ -55,7 +63,7 @@ int main()
             globalSum += receiveBuffer;
         }
 
-        printf("El valor es: %f\n", globalSum);
+        //printf("El valor es: %f\n", globalSum);
     }
     else 
     {
