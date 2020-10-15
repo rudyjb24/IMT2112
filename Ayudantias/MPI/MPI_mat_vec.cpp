@@ -91,9 +91,11 @@ int main()
 	}
 
     int** localMat = matrix_generator(n, localColumnas);
+    print_vector(localVec, n);
+    //print_matrix(int** matrix, int n)
 	int* localResult = (int*) calloc(n, sizeof(int));
 
-    // printf("Rank %i, empezando local mat vec\n", world_rank);
+    //printf("Rank %i, empezando local mat vec\n", world_rank);
 	for (int i=0; i<n; i++)
     {
         for (int j=0; j<localColumnas; j++)
@@ -102,18 +104,18 @@ int main()
         }
 		
 	}
-    // printf("Rank %i, termino local mat vec\n", world_rank);
+    //printf("Rank %i, termino local mat vec\n", world_rank);
 
     if (world_rank == 0)
     {
-        printf("Rank 0 va a empezar el proceso de recibir\n");
+        //printf("Rank 0 va a empezar el proceso de recibir\n");
         int* buffer = (int*) calloc(n, sizeof(int));
         for (int p=1; p<world_size; p++)
         {
-            printf("A punto de recibir de %i\n", p);
+            //printf("A punto de recibir de %i\n", p);
             err = MPI_Recv(buffer, n, MPI_INT, p, p, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             //MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Status *status)
-            printf("Recibido de %i\n", p);
+            //printf("Recibido de %i\n", p);
             for (int i=0; i<n; i++)
             {
                 localResult[i] += buffer[i];
@@ -124,9 +126,9 @@ int main()
     }
     else 
     {
-        printf("Rank %i va a enviar\n", world_rank);
+        //printf("Rank %i va a enviar\n", world_rank);
         err = MPI_Send(localResult, n, MPI_INT, 0, world_rank, MPI_COMM_WORLD);
-        printf("Rank %i termino de enviar\n", world_rank);
+        //printf("Rank %i termino de enviar\n", world_rank);
         //MPI_Send(void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator)
     }
 
