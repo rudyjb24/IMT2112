@@ -102,7 +102,7 @@ int main()
         }
 		
 	}
-    // printf("Rank %i, termino local mat vec\n", world_rank);
+    printf("Rank %i, termino local mat vec\n", world_rank);
 
     if (world_rank == 0)
     {
