@@ -6,7 +6,7 @@
 using namespace std;
 
 
-int** matrix_generator(int filas, int columnas)
+int** matrix_generator(int filas, int columnas, int world_rank)
 {
   int** matrix = (int**) calloc(filas, sizeof(int*));
 
@@ -19,7 +19,7 @@ int** matrix_generator(int filas, int columnas)
   {
     for (int j = 0; j < columnas; j++)
     {
-        matrix[i][j] = i+j;
+        matrix[i][j] = i+j+world_rank;
     }
   }
   return matrix;
@@ -90,7 +90,7 @@ int main()
         localVec[i] = firstIndex + i;
 	}
 
-    int** localMat = matrix_generator(n, localColumnas);
+    int** localMat = matrix_generator(n, localColumnas, world_rank);
     print_vector(localVec, localColumnas);
     print_matrix(localMat, n, localColumnas);
 	int* localResult = (int*) calloc(n, sizeof(int));
