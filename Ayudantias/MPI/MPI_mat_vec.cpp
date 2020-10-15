@@ -109,6 +109,7 @@ int main()
         {
             err = MPI_Recv(&buffer, n, MPI_INT, p, p, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             //MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Status *status)
+            printf("Recibido de %i", p);
             for (int i=0; i<n; i++)
             {
                 localResult[i] += buffer[i];
