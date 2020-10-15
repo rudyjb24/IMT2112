@@ -49,7 +49,7 @@ int main()
     {
 		localSum += localVec1[i] * localVec2[i];
 	}
-    printf("Local Sum: %i\n", localSum);
+    // printf("Local Sum: %i\n", localSum);
     int globalSum;
 
     globalSum = 0;
@@ -64,7 +64,7 @@ int main()
             globalSum += receiveBuffer;
         }
 
-        printf("El valor es: %i\n", globalSum);
+        printf("El valor del producto punto es: %i\n", globalSum);
     }
     else 
     {
