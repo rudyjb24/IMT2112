@@ -39,7 +39,7 @@ int main()
     {
 		localVec1[i] = 1;
         localVec2[i] = firstIndex + i;
-        printf("Rank: %i, locvec1 %i, locvec2 %i", world_rank, localVec1[i] localVec2[i]);
+        printf("Rank: %i, locvec1 %i, locvec2 %i", world_rank, localVec1[i], localVec2[i]);
 
 	}
 
