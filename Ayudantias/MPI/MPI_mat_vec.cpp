@@ -47,7 +47,7 @@ void print_matrix(int** matrix, int n)
   }
 }
 
-void print_vector(float *vector, int n)
+void print_vector(int *vector, int n)
 {
   printf("\n");
   for (int i = 0; i < n; i++) 
@@ -85,7 +85,7 @@ int main()
 
 	int localVec[localColumnas];
 
-	for (int i=0; i<localSize; i++)
+	for (int i=0; i<localColumnas; i++)
     {
         localVec[i] = firstIndex + i;
 	}
