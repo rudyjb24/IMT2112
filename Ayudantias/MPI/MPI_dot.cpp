@@ -32,8 +32,8 @@ int main()
 
     printf("Rank %i, local size: %i, first index %i \n", world_rank, localSize, firstIndex);
 
-	float localVec1[localSize];
-	float localVec2[localSize];
+	int localVec1[localSize];
+	int localVec2[localSize];
 
 	for (int i=0; i<localSize; i++)
     {
@@ -44,12 +44,12 @@ int main()
 	}
 
 
-	float localSum = 0;
+	int localSum = 0;
 	for (int i=0; i<localSize; i++)
     {
 		localSum += localVec1[i] * localVec2[i];
 	}
-    printf("Local Sum: %f\n", localSum);
+    printf("Local Sum: %i\n", localSum);
     int globalSum;
 
     globalSum = 0;
@@ -64,7 +64,7 @@ int main()
             globalSum += receiveBuffer;
         }
 
-        printf("El valor es: %f\n", globalSum);
+        printf("El valor es: %i\n", globalSum);
     }
     else 
     {
