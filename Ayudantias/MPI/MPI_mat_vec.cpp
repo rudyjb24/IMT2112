@@ -71,7 +71,7 @@ int main()
 
     int firstIndex, localColumnas, n, err;
     
-    n = 8;
+    n = 9;
 
     localColumnas = n / world_size;
     firstIndex = world_rank*localColumnas;
@@ -91,7 +91,7 @@ int main()
 	}
 
     int** localMat = matrix_generator(n, localColumnas);
-    print_vector(localVec, n);
+    print_vector(localVec, localColumnas);
     //print_matrix(int** matrix, int n)
 	int* localResult = (int*) calloc(n, sizeof(int));
 
