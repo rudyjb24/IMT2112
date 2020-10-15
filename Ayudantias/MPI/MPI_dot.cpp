@@ -18,14 +18,13 @@ int main()
         printf("Tamano: %i\n\n", world_size);
     }
 
-    int firstIndex, localSize, n, err;
+    int localSize, n, err;
     
-    n = 8;
+    n = 16;
 
     localSize = n / world_size;
-    firstIndex = world_rank * (n / world_size) + 1;
     
-    printf("Rank %i, local size: %i, first index: %i\n", world_rank, localSize, firstIndex);
+    printf("Rank %i, local size: %i\n", world_rank, localSize);
 
 
     if (world_rank == world_size-1)
@@ -48,7 +47,7 @@ int main()
     {
 		localSum += localVec1[i] * localVec2[i];
 	}
-    //printf("Local Sum: %f\n", localSum);
+    printf("Local Sum: %f\n", localSum);
     int globalSum;
 
     globalSum = 0;
@@ -63,7 +62,7 @@ int main()
             globalSum += receiveBuffer;
         }
 
-        //printf("El valor es: %f\n", globalSum);
+        printf("El valor es: %f\n", globalSum);
     }
     else 
     {
