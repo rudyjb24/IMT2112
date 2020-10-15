@@ -22,7 +22,7 @@ int main()
     
     if (world_rank == world_size-1)
     {
-        localSize += sumlength % world_size;
+        localSize += n % world_size;
     }
 
 	int localVec1[localSize];
@@ -55,7 +55,7 @@ int main()
             globalSum += receiveBuffer;
         }
 
-        printf("El valor es: %f", globalSum)
+        printf("El valor es: %f", globalSum);
     }
     else 
     {
