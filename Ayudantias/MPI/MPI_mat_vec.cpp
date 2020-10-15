@@ -66,7 +66,7 @@ int main()
 
     if (world_rank == 0)
     {
-        printf("Tamano: %i\n\n", world_size);
+        // printf("Tamano: %i\n\n", world_size);
     }
 
     int firstIndex, localColumnas, n, err;
@@ -81,7 +81,7 @@ int main()
         localColumnas += n % world_size;
     }
 
-    printf("Rank %i, local columnas: %i, first index %i \n", world_rank, localColumnas, firstIndex);
+    // printf("Rank %i, local columnas: %i, first index %i \n", world_rank, localColumnas, firstIndex);
 
 	int localVec[localColumnas];
 
@@ -93,7 +93,7 @@ int main()
     int** localMat = matrix_generator(n, localColumnas);
 	int* localResult = (int*) calloc(n, sizeof(int));
 
-    printf("Rank %i, empezando local mat vec\n", world_rank);
+    // printf("Rank %i, empezando local mat vec\n", world_rank);
 	for (int i=0; i<n; i++)
     {
         for (int j=0; j<localColumnas; j++)
@@ -102,10 +102,11 @@ int main()
         }
 		
 	}
-    printf("Rank %i, termino local mat vec\n", world_rank);
+    // printf("Rank %i, termino local mat vec\n", world_rank);
 
     if (world_rank == 0)
     {
+        printf("Rank 0 va a empezar el proceso de recibir");
         int* buffer = (int*) calloc(n, sizeof(int));
         for (int p=1; p<world_size; p++)
         {
@@ -123,7 +124,9 @@ int main()
     }
     else 
     {
+        printf("Rank %i va a enviar", world_rank);
         err = MPI_Send(&localResult, n, MPI_INT, 0, world_rank, MPI_COMM_WORLD);
+        printf("Rank %i termino de enviar", world_rank);
         //MPI_Send(void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator)
     }
 
