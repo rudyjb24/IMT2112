@@ -15,7 +15,7 @@ int main()
 
     if (world_rank == 0)
     {
-        printf("Tamano: %i", world_size);
+        printf("Tamano: %i\n\n", world_size);
     }
 
     int firstIndex, localSize, n, err;
@@ -25,7 +25,7 @@ int main()
     localSize = n / world_size;
     firstIndex = world_rank * (n / world_size) + 1;
     
-    printf("Rank %i, local size: %i, first index: %i", world_rank, localSize, firstIndex);
+    printf("Rank %i, local size: %i, first index: %i\n", world_rank, localSize, firstIndex);
 
 
     if (world_rank == world_size-1)
