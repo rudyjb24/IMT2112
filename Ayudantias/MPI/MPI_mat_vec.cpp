@@ -8,7 +8,7 @@ using namespace std;
 
 int** matrix_generator(int filas, int columnas)
 {
-  float** matrix = (int**) calloc(filas, sizeof(int*));
+  int** matrix = (int**) calloc(filas, sizeof(int*));
 
   for (int i = 0; i < filas; i++)
   {
@@ -102,7 +102,6 @@ int main()
 		
 	}
 
-    globalSum = 0;
     if (world_rank == 0)
     {
         int* buffer = (int*) calloc(n, sizeof(int));
