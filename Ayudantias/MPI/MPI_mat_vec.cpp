@@ -34,12 +34,12 @@ void free_matrix(int **matrix, int filas)
   free(matrix);
 }
 
-void print_matrix(int** matrix, int n)
+void print_matrix(int** matrix, int filas, int columnas)
 {
   printf("\n");
-  for (int i = 0; i < n; i++) 
+  for (int i = 0; i < filas; i++) 
   {
-      for (int j = 0; j < n; j++)
+      for (int j = 0; j < columnas; j++)
       {
          printf("%i ", matrix[i][j]); 
       }
@@ -92,7 +92,7 @@ int main()
 
     int** localMat = matrix_generator(n, localColumnas);
     print_vector(localVec, localColumnas);
-    print_matrix(int** matrix, int n);
+    print_matrix(localMat, n, localColumnas);
 	int* localResult = (int*) calloc(n, sizeof(int));
 
     //printf("Rank %i, empezando local mat vec\n", world_rank);
