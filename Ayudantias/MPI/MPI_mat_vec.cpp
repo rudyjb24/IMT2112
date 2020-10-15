@@ -19,7 +19,7 @@ int** matrix_generator(int filas, int columnas)
   {
     for (int j = 0; j < columnas; j++)
     {
-        matrix[i][j] = i*j;
+        matrix[i][j] = i+j;
     }
   }
   return matrix;
@@ -71,7 +71,7 @@ int main()
 
     int firstIndex, localColumnas, n, err;
     
-    n = 9;
+    n = 8;
 
     localColumnas = n / world_size;
     firstIndex = world_rank*localColumnas;
@@ -92,7 +92,7 @@ int main()
 
     int** localMat = matrix_generator(n, localColumnas);
     print_vector(localVec, localColumnas);
-    //print_matrix(int** matrix, int n)
+    print_matrix(int** matrix, int n)
 	int* localResult = (int*) calloc(n, sizeof(int));
 
     //printf("Rank %i, empezando local mat vec\n", world_rank);
