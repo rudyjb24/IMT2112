@@ -18,19 +18,19 @@ int main()
         printf("Tamano: %i\n\n", world_size);
     }
 
-    int localSize, n, err;
+    int firstIndex, localSize, n, err;
     
-    n = 16;
+    n = 9;
 
     localSize = n / world_size;
-    
-    printf("Rank %i, local size: %i\n", world_rank, localSize);
-
+    firstIndex = world_rank*localSize;
 
     if (world_rank == world_size-1)
     {
         localSize += n % world_size;
     }
+
+    printf("Rank %i, local size: %i, first index %i \n", world_rank, localSize, firstIndex);
 
 	float localVec1[localSize];
 	float localVec2[localSize];
@@ -38,7 +38,9 @@ int main()
 	for (int i=0; i<localSize; i++)
     {
 		localVec1[i] = 1;
-        localVec2[i] = i;
+        localVec2[i] = firstIndex + i;
+        printf("Rank: %i, locvec1 %i, locvec2 %i", world_rank, localVec1[i] localVec2[i]);
+
 	}
 
 
