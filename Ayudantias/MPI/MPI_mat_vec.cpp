@@ -91,8 +91,8 @@ int main()
 	}
 
     int** localMat = matrix_generator(n, localColumnas, world_rank);
-    print_vector(localVec, localColumnas);
-    print_matrix(localMat, n, localColumnas);
+    //print_vector(localVec, localColumnas);
+    //print_matrix(localMat, n, localColumnas);
 	int* localResult = (int*) calloc(n, sizeof(int));
 
     //printf("Rank %i, empezando local mat vec\n", world_rank);
