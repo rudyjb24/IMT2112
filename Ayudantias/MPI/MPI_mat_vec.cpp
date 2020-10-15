@@ -102,7 +102,7 @@ int main()
         }
 		
 	}
-    printf("Rank %i, termino local mat vec\n", world_rank);
+    // printf("Rank %i, termino local mat vec\n", world_rank);
 
     if (world_rank == 0)
     {
@@ -126,7 +126,7 @@ int main()
     {
         printf("Rank %i va a enviar\n", world_rank);
         err = MPI_Send(localResult, n, MPI_INT, 0, world_rank, MPI_COMM_WORLD);
-        printf("Rank %i termino de enviar", world_rank);
+        printf("Rank %i termino de enviar\n", world_rank);
         //MPI_Send(void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator)
     }
 
