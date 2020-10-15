@@ -40,7 +40,7 @@ int main()
     {
 		localSum += localVec1[i] * localVec2[i];
 	}
-
+    printf("Local Sum: %f\n", localSum);
     int globalSum;
 
     globalSum = 0;
