@@ -107,6 +107,7 @@ int main()
         int* buffer = (int*) calloc(n, sizeof(int));
         for (int p=1; p<world_size; p++)
         {
+            printf("A punto de recibir de %i", p);
             err = MPI_Recv(&buffer, n, MPI_INT, p, p, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             //MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Status *status)
             printf("Recibido de %i", p);
