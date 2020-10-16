@@ -19,7 +19,7 @@ int main()
 
     int firstIndex, localSize, n, err;
     
-    n = 7;
+    n = 10;
 
     localSize = n / world_size;
     firstIndex = world_rank*localSize;
@@ -38,8 +38,7 @@ int main()
     {
 		localVec1[i] = 1;
         localVec2[i] = firstIndex + i;
-        // printf("Rank: %i, locvec1 %i, locvec2 %i\n", world_rank, localVec1[i], localVec2[i]);
-
+        //printf("Rank: %i, locvec1 %i, locvec2 %i\n", world_rank, localVec1[i], localVec2[i]);
 	}
 
 
@@ -49,8 +48,8 @@ int main()
 		localSum += localVec1[i] * localVec2[i];
 	}
     // printf("Local Sum: %i\n", localSum);
+    
     int globalSum;
-
     globalSum = 0;
     if (world_rank == 0)
     {
