@@ -19,7 +19,7 @@ int main()
 
     int firstIndex, localSize, n, err;
     
-    n = 10;
+    n = 7;
 
     localSize = n / world_size;
     firstIndex = world_rank*localSize;
