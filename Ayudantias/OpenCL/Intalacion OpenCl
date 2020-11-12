@@ -1,0 +1,12 @@
+Linux:
+
+sudo apt-get install beignet-opencl-icd clinfo
+
+sudo apt-get install beignet-dev
+
+sudo apt install opencl-clhpp-headers     
+
+
+Windows:
+
+https://streamhpc.com/blog/2015-03-16/how-to-install-opencl-on-windows/
