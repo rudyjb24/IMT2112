@@ -1,4 +1,6 @@
 // Compilation as: gcc -framework OpenCL opencl-id.cpp
+#define CL_TARGET_OPENCL_VERSION 120
+//#define CL_USE_DEPRECATED_OPENCL_1_2_APIS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,13 +39,13 @@ int main() {
 
 	// Boilerplate functionality
 	err = clGetPlatformIDs(1, &platform, NULL);
-	err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_DEFAULT, 1, &device, NULL);
+	err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
 	cl_context_properties cps[3] = { CL_CONTEXT_PLATFORM, (cl_context_properties)platform, 0 };
 	ctx = clCreateContext(cps, 1, &device, NULL, NULL, &err);
 	myqueue = clCreateCommandQueue(ctx, device, 0, &err);
 
 	// Create data on the host
-	const unsigned int n = 100;
+	const unsigned int n = 16;
 	int *h_a = (int *)malloc(sizeof(int) * n);
 	int *h_b = (int *)malloc(sizeof(int) * n);
 	int *h_c = (int *)malloc(sizeof(int) * n);
@@ -56,10 +58,10 @@ int main() {
 	}
 
 	// Allocate memory on the device
-	cl_mem d_a = clCreateBuffer(ctx, CL_MEM_READ_ONLY, n * sizeof(int), NULL, &err);
-	cl_mem d_b = clCreateBuffer(ctx, CL_MEM_READ_ONLY, n * sizeof(int), NULL, &err);
-	cl_mem d_c = clCreateBuffer(ctx, CL_MEM_READ_ONLY, n * sizeof(int), NULL, &err);
-	cl_mem d_d = clCreateBuffer(ctx, CL_MEM_READ_ONLY, n * sizeof(int), NULL, &err);
+	cl_mem d_a = clCreateBuffer(ctx, CL_MEM_READ_WRITE, n * sizeof(int), NULL, &err);
+	cl_mem d_b = clCreateBuffer(ctx, CL_MEM_READ_WRITE, n * sizeof(int), NULL, &err);
+	cl_mem d_c = clCreateBuffer(ctx, CL_MEM_READ_WRITE, n * sizeof(int), NULL, &err);
+	cl_mem d_d = clCreateBuffer(ctx, CL_MEM_READ_WRITE, n * sizeof(int), NULL, &err);
 
 	// Initialise on device memory
 	// we do not need to initialise since we have only output
@@ -80,7 +82,7 @@ int main() {
 
 	// Execute the kernel in chunks of localSize
 	size_t localSize = 8;
-	size_t globalSize = (size_t)ceil(n / (float)localSize) * localSize;
+	size_t globalSize = 16;
 	// size_t globalSize = (size_t)n;
 	err = clEnqueueNDRangeKernel(myqueue, mykernel, 1, NULL, &globalSize, &localSize, 0, NULL, NULL);
     

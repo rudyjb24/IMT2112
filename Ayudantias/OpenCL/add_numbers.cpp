@@ -1,6 +1,5 @@
 #define PROGRAM_FILE "add_numbers.cl"
 #define KERNEL_FUNC "add_numbers"
-#define ARRAY_SIZE 16
 
 #include <math.h>
 #include <stdio.h>
@@ -100,8 +99,9 @@ int main() {
    size_t local_size, global_size;
 
    /* Data and buffers */
+   int ARRAY_SIZE = 50;
    float data[ARRAY_SIZE];
-   float sum[2], total, actual_sum;
+   float total, actual_sum;
 
 
    cl_mem input_buffer, sum_buffer;
@@ -109,8 +109,7 @@ int main() {
 
    /* Initialize data */
    for(i=0; i<ARRAY_SIZE; i++) {
-      //data[i] = rand()%100 - 200;
-      data[i] = i;
+      data[i] = 1;
    }
 
    /* Create device and context */
@@ -128,6 +127,7 @@ int main() {
    global_size = 8;
    local_size = 4;
    num_groups = global_size/local_size;
+   float sum[num_groups];
 
    input_buffer = clCreateBuffer(context, CL_MEM_READ_ONLY |
          CL_MEM_COPY_HOST_PTR, ARRAY_SIZE * sizeof(float), data, &err);
@@ -155,8 +155,9 @@ int main() {
 
    /* Create kernel arguments */
    err = clSetKernelArg(kernel, 0, sizeof(cl_mem), &input_buffer);
-   err |= clSetKernelArg(kernel, 1, local_size * sizeof(float), NULL);
-   err |= clSetKernelArg(kernel, 2, sizeof(cl_mem), &sum_buffer);
+   err |= clSetKernelArg(kernel, 1, sizeof(cl_mem), &sum_buffer);
+   err |= clSetKernelArg(kernel, 2, sizeof(cl_mem), (void *)&ARRAY_SIZE);
+   err |= clSetKernelArg(kernel, 3, sizeof(cl_mem), (void *)&num_groups);
    if(err < 0) {
       perror("Couldn't create a kernel argument");
       exit(1);
@@ -181,6 +182,7 @@ int main() {
    /* Check result */
    total = 0;
    for(j=0; j<num_groups; j++) {
+       printf("%f\n", sum[j]);
       total += sum[j];
    }
 
