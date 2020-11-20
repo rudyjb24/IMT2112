@@ -54,7 +54,6 @@ float** matrizN(int primerindice, int Nx, int Ny,float hx, float hy)
   return matrix;
 }
 
-
 float** matrizS(int primerindice,int Nx, int Ny,float hx, float hy)
 {
     float** matrix = (float**) calloc(Nx, sizeof(float*));

@@ -373,7 +373,7 @@ int main()
     float hx, hy;
     
     Nx = 100;
-    Ny =100;
+    Ny = 100;
     hx = 1 /float(Nx);
     hy = 1 /float(Ny);
     iteraciones = 200;
