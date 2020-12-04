@@ -29,7 +29,7 @@ const char * src =
 ;
 
 int main() {
-
+	printf("Hola");
 	// Allocate the OpenCL variables for the heterogeneous processors
 	cl_int err;
 	cl_platform_id platform;
