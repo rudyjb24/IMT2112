@@ -4,7 +4,7 @@ import pyopencl as cl
 
 
 n = 10000
-m = 1000
+m = 100
 
 
 
@@ -49,14 +49,14 @@ __kernel void Mandelbrot(
     if (i == 0)
     {   
         xc_d[global_id] = c_d[global_id];
-        xr_d[global_id] = (r_d[global_id] * r_d[global_id]);
+        xr_d[global_id] = r_d[global_id];
     }
-    float temp = 2*(xr_d[global_id] * xr_d[global_id]) +  c_d[global_id];
+    float temp = 2*(xr_d[global_id] * xc_d[global_id]) +  c_d[global_id];
     
-    xr_d[global_id] = (xr_d[global_id]*xr_d[global_id]) + (xc_d[global_id]*xc_d[global_id]);
+    xr_d[global_id] = (xr_d[global_id]*xr_d[global_id]) - (xc_d[global_id]*xc_d[global_id]) + r_d[global_id];
     xc_d[global_id] = temp; 
     
-    if ((xc_d[global_id]*xc_d[global_id] +  xr_d[global_id]*xr_d[global_id]) >= 4)
+    if ((xc_d[global_id]*xc_d[global_id] +  xr_d[global_id]*xr_d[global_id]) > 4)
     {
         sup_d[global_id] = 0;
         break;
@@ -72,6 +72,7 @@ __kernel void Mandelbrot(
 t0_GPU = tm.time()
 program.Mandelbrot(queue, (n,), (m,), r_d, c_d, xc_d, xr_d,sup_d)
 cl.enqueue_copy(queue, resultados, sup_d)
+print(len(resultados))
 superficie = 16*np.sum(resultados)/n 
 #ponderamos el valor de los resultados ya que estamos viendo si un valor pertenece a un cuadrado de lado 4 (area 16)
 t1_GPU = tm.time()

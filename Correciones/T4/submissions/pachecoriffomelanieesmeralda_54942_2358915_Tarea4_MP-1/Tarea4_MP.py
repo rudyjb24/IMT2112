@@ -6,9 +6,9 @@ import pyopencl as cl
 import time as tm
 
 # iteraciones, cantidad de puntos, cantidad de grupos y tamaño de grupos
-iteracion = 400
-n = 3000000
-cant_grupos = 3000
+iteracion = 1000
+n = 10000
+cant_grupos = 100
 m = int(n/cant_grupos)
 # 0.0178792 
 WIDTH = 600
