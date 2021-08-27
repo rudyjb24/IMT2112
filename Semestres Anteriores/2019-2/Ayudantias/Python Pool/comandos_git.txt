@@ -1,0 +1,22 @@
+git clone direccion -> crea un version local de un repositorio
+
+
+Esto comandos deben ejecutarse en el directorio del repositorio
+
+git status -> muestra los archivos modificados o nuevos
+
+
+Para descargar cambios:
+git pull -> descarga los cambios (si es que hay cambios) de un repositorio
+Muy recomdable ejecutar este comando cada vez que vayan a trabajar en un repositorio
+
+
+Para subir cambios (se deben ejecutar los 3 comandos en orden):
+
+git add file -> añade el archivo file
+o
+git add -A -> añade todos los cambios (no recomendable usar)
+
+git commit -m 'mensaje' -> crea un commit, esto agrega archivos al repositorio de manera local
+
+git push -> sube el ultimo commit al repositorio remoto
