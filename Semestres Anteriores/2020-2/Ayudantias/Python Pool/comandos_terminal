@@ -1,7 +1,0 @@
-ls -> muestra la lista de directorios y archivos en el directorio actual
-
-cd directory -> mueve el directorio actual a directory (debe ser una direccion valida)
-
-python3 archivo.py -> ejecuta archivo.py (debe ser una direccion valida) 
-
-Si quieres aprender mas: https://www.codecademy.com/learn/learn-the-command-line

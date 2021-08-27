@@ -1,4 +1,0 @@
-gcc -framework OpenCL opencl-devices.cpp -> Compila para apple
-
-g++ sum_vec.cpp -lOpenCL   -> compila para linux
-

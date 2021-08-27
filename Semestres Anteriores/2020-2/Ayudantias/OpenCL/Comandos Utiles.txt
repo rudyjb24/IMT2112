@@ -1,3 +1,0 @@
-gcc -framework OpenCL archivo.cpp -> Compila para apple
-
-g++ archivo.cpp -lOpenCL   -> compila para linux

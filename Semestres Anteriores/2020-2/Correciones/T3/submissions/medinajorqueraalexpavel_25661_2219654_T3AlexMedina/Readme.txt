@@ -1,1 +1,0 @@
-Se recomienda ver el código cpp, no es como que valga la pena ejecutarlo, saludos
