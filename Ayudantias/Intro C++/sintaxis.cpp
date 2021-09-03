@@ -12,14 +12,13 @@ int main() {
         printf("a+b = %i\n", a+b);
     }
     else if (a+b == 2 || c == 8) {
-        printf("c = %f\n", c);
+        printf("c = %f, %f\n", c, c);
     }
     else {
 
     }
 
-
-    for (int i=0; i<10; ++i) {
+    for (int i=0; i<10; i++) {
         a += 1;
     }
     printf("a = %i\n", a);

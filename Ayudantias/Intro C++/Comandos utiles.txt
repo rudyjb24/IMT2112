@@ -17,7 +17,7 @@ Para suma y resta esto es equivalente a ++x o --x
 Operaciones Comparativas: == != < > <= >=
 
 
-Operaciones Logicas: &&(and), ||(or)
+Operaciones Logicas: &&(and)   ||(or)
 
 
 printf: %i(int) %f(float)

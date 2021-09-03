@@ -16,6 +16,11 @@ int main() {
   int b = 10;
   int c;
 
+  actualizar(&a);
+
+  c = suma(a,b);
+
+
   printf("a = %i\n", a);
   printf("b = %i\n", b);
   printf("c = %i\n", c);
@@ -35,5 +40,5 @@ int main() {
 
 
 
-//c = suma(a,b);
-//actualizar(&a);
+
+
