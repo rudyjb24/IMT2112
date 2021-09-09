@@ -1,0 +1,2 @@
+g++ file.cpp -fopenmp -> compila codigo con openMP y genera ejecutable a.out
+g++ -o nombre file.cpp -fopenmp -> compila codigo con openMP y genera ejecutable nombre.out
