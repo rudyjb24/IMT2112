@@ -80,21 +80,21 @@ float* mat_vec_par(float **matrix, float *vector, int n) {
 
 int main() {
   
-  int n = 50000;
+  int n = 5;
   
   float* x = vector_generator(n, 100);
   float** A = matrix_generator(n, 100);
   
 
-  //print_matrix(A, n);
-  //print_vector(x, n);
+  print_matrix(A, n);
+  print_vector(x, n);
 
 
   auto start = std::chrono::high_resolution_clock::now();
   float* b = mat_vec(A, x, n);
   auto end = std::chrono::high_resolution_clock::now();
   auto execution = std::chrono::duration_cast<std::chrono::nanoseconds>( end - start ); 
-  //print_vector(b, n);
+  print_vector(b, n);
   printf("Time measured: %.3f seconds\n", execution.count() * 1e-9);
 
 
@@ -103,7 +103,7 @@ int main() {
   auto end_p = std::chrono::high_resolution_clock::now();
   auto execution_p = std::chrono::duration_cast<std::chrono::nanoseconds>( end_p - start_p );
 
-  //print_vector(bp, n);
+  print_vector(bp, n);
   printf("Time measured: %.3f seconds\n", execution_p.count()* 1e-9);
 
   free_matrix(A, n);

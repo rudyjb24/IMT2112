@@ -4,16 +4,16 @@
  
 int main() {
   
-  int x = 0;
+  int x1 = 0;
 
   #pragma omp parallel for num_threads(4)
   for (int i=0;i<10;i++) {
     int id = omp_get_thread_num();
-    x += 1;
+    x1 += 1;
     printf("Proceso %d sumo 1\n", id);  
   }
 
-  printf("\nx = %i\n", x);
+  printf("\nx1 = %i\n", x1);
 
   return 0;
 }
@@ -49,7 +49,7 @@ int main() {
 
 
 
-
+//  int x2 = 0;
 //  int n = 6;
 //  int* array = (int *) calloc(n, sizeof(int));
 //
@@ -63,8 +63,8 @@ int main() {
 //    }
 //
 //  for (int i=0;i<n;i++) {
-//      x += array[i]; 
+//      x2 += array[i]; 
 //    }
 //
-//  printf("\nx = %i\n", x);
+//  printf("\nx2 = %i\n", x2);
 //  }
