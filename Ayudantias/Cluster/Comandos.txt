@@ -21,4 +21,3 @@ Correr Codigo:
     squeue o top -> da informacion sobre la cola de trabajo
 
     sbatch job.sh -> agrega el trabajo job.sh a la cola de trabajo
-
