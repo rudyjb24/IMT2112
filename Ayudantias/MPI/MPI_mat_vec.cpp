@@ -95,7 +95,7 @@ int main() {
         for (int p=1; p<world_size; p++) {
             printf("A punto de recibir de %i\n", p);
             err = MPI_Recv(buffer, n, MPI_INT, p, p, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-            MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Status *status)
+            //MPI_Recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Status *status)
             printf("Recibido de %i\n", p);
             for (int i=0; i<n; i++) {
                 localResult[i] += buffer[i];
@@ -107,7 +107,7 @@ int main() {
         printf("Rank %i va a enviar\n", world_rank);
         err = MPI_Send(localResult, n, MPI_INT, 0, world_rank, MPI_COMM_WORLD);
         printf("Rank %i termino de enviar\n", world_rank);
-        MPI_Send(void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator)
+        //MPI_Send(void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator)
     }
 
     free(localResult);

@@ -9,5 +9,5 @@
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=1
 
-mpic++ MPI_dot.cpp
+mpic++ MPI_dot.cpp -std=c++11
 mpirun a.out
