@@ -44,6 +44,8 @@ int main() {
 	}
     // printf("Local Sum: %i\n", localSum);
     
+
+    
     int globalSum = localSum;
     int receiveBuffer;
 

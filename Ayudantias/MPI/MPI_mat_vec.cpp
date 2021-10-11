@@ -47,7 +47,7 @@ void print_vector(int* vector, int n) {
 
 
 int main() {
-    MPI_Init(NULL,NULL);
+  MPI_Init(NULL,NULL);
 	int world_size, world_rank;
 	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 	MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
@@ -80,14 +80,21 @@ int main() {
     //print_matrix(localMat, n, localColumnas);
 	int* localResult = (int*) calloc(n, sizeof(int));
 
-    printf("Rank %i, empezando local mat vec\n", world_rank);
+
+
+
+
+  printf("Rank %i, empezando local mat vec\n", world_rank);
 	for (int i=0; i<n; i++) {
         for (int j=0; j<localColumnas; j++) {
             localResult[i] += localMat[i][j] * localVec[j];
         }
-		
 	}
-    printf("Rank %i, termino local mat vec\n", world_rank);
+  printf("Rank %i, termino local mat vec\n", world_rank);
+
+
+
+
 
     if (world_rank == 0) {
         printf("Rank 0 va a empezar el proceso de recibir\n");

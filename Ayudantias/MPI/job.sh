@@ -6,7 +6,7 @@
 
 #SBATCH --output=log.out
 
-#SBATCH --ntasks=4
+#SBATCH --ntasks=8
 #SBATCH --cpus-per-task=1
 
 mpic++ MPI_dot.cpp -std=c++11
