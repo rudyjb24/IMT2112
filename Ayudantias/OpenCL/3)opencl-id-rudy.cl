@@ -9,7 +9,7 @@ __kernel void getmyid(
 	                                   
     if(id < n) 
     {                      
-       a[id] = 1;      
+       a[id] = get_global_id(0);      
        b[id] = get_local_id(0);       
        c[id] = get_group_id(0);       
        d[id] = get_local_size(0);     
