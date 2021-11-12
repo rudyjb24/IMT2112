@@ -43,5 +43,5 @@ event = prg.get_my_id_2d(queue, (matrix_size, matrix_size), (workgroup_size, wor
 
 print("\nLocal id along dimension 0:")
 print(cl_row.reshape(matrix_size, matrix_size))
-print("Local id along dimension 1:")
+print("\nLocal id along dimension 1:")
 print(cl_col.reshape(matrix_size, matrix_size))
