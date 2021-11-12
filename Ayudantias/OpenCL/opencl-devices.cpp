@@ -4,9 +4,9 @@
 #ifdef __APPLE__
 #include <OpenCL/opencl.h>
 #else
+#define CL_TARGET_OPENCL_VERSION 120
 #include <CL/cl.h>
 #endif
-#define CL_TARGET_OPENCL_VERSION 220
 
 int main() {
 
