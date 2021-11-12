@@ -1,12 +1,12 @@
-// Compilation as: gcc -framework OpenCL opencl-id.cpp
-#define CL_TARGET_OPENCL_VERSION 120
-//#define CL_USE_DEPRECATED_OPENCL_1_2_APIS
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <CL/cl.h> // For Linux/Windows
-//#include <OpenCL/opencl.h> // For MAC
+#ifdef __APPLE__
+#include <OpenCL/opencl.h>
+#else
+#define CL_TARGET_OPENCL_VERSION 120
+#include <CL/cl.h>
+#endif
 
 // Create the kernel code in the form of a text string
 const char * src =
@@ -29,7 +29,6 @@ const char * src =
 ;
 
 int main() {
-	printf("Hola\n");
 	// Allocate the OpenCL variables for the heterogeneous processors
 	cl_int err;
 	cl_platform_id platform;

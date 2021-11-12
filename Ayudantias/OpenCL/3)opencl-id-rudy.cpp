@@ -1,10 +1,12 @@
-#define CL_TARGET_OPENCL_VERSION 120
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <CL/cl.h> // Para Windows/Linux
-//#include <OpenCL/opencl.h> // Para MAC
+#ifdef __APPLE__
+#include <OpenCL/opencl.h>
+#else
+#define CL_TARGET_OPENCL_VERSION 120
+#include <CL/cl.h>
+#endif
 
 /* Encuentra GPU o CPU */
 cl_device_id create_device() 
@@ -26,6 +28,7 @@ cl_device_id create_device()
 
 	/* Accede al device */
 		err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &dev, NULL);
+		printf("Todo bien");
 		if(err == CL_DEVICE_NOT_FOUND) 
 		{	
 			printf("No pude acceder a la GPU\n");
@@ -36,6 +39,7 @@ cl_device_id create_device()
 			printf("No pude acceder a un device\n");
 			exit(1);
 		}
+		printf("/n");
 	/* Accede al device */
 
 	return dev;
